@@ -5,7 +5,7 @@ from app.components.chat_handlers import send_message
 from app.components.chat_ui import show_message
 from agents.orchestrator_agent import run_supervisor
 from chatbot_streamlit_lambda.data.constants import Constants
-from app.handlers import ensure_sso_session
+from app.handlers.sso_handler import ensure_sso_session
 
 #ensure_sso_session()
 # Inicializar sesión
