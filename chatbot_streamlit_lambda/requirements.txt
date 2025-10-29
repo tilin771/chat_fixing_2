@@ -1,0 +1,6 @@
+streamlit
+boto3
+dotenv
+fastapi
+uvicorn
+python-multipart
