@@ -22,7 +22,7 @@ def handle_kb(user_input, decision=None):
 
     with st.chat_message("assistant"):
         placeholder = st.empty()
-        with st.spinner(Constants.Spinners["kb_query"]):
+        with st.spinner(Constants.Spinners.KB_QUERY):
             for chunk in consultar_kb_streaming(user_input, query, prioridad=7):
                 full_response += chunk
                 st.session_state["messages"][current_idx]["content"] = full_response

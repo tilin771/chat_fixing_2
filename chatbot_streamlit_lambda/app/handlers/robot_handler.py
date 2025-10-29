@@ -24,7 +24,7 @@ def handle_robot(user_input_or_decision):
     else:
         prompt = user_input_or_decision
 
-    stream_response(run_robot, prompt, session_id, message_spinner=Constants.Spinners["robot_execute"])
+    stream_response(run_robot, prompt, session_id, message_spinner=Constants.Spinners.ROBOT_EXECUTE)
 
     full_response = st.session_state["messages"][-1]["content"].lower()
     keywords_reinicio = ["lo siento", "por favor", "contacta con soporte"]

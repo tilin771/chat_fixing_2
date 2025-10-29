@@ -6,7 +6,7 @@ from app.handlers.robot_handler import handle_robot
 from app.handlers.ticket_handler import handle_ticket
 from app.components.chat_ui import show_message
 from app.utils.validators import validate_message
-from chatbot_streamlit_lambda.data.constants import ERRORES
+from data.constants import Constants
 from data.prompts import PROMPT_MODIFIER
 
 
@@ -18,7 +18,7 @@ def parse_decision_with_retry(user_input, session_id, max_retries=3):
             return json.loads(decision)
         except json.JSONDecodeError:
             prompt = user_input + PROMPT_MODIFIER["force_json"]
-    return {"userResponse": ERRORES["bad_response_agent"]}
+    return {"userResponse": Constants.Errores.BAD_RESPONSE_AGENT}
 
 
 

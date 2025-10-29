@@ -10,13 +10,13 @@ def handle_ticket(user_input):
 
     if not st.session_state.get("ticket_iniciado", False):
         st.session_state["ticket_iniciado"] = True
-        spinner_message = Constants.Spinners["ticket_create"]
+        spinner_message = Constants.Spinners.TICKET_CREATE
         prompt = "Resumen de la conversación:\n"
         for msg in st.session_state["messages"]:
             rol = "Usuario" if msg["role"] == "user" else "Asistente"
             prompt += f"{rol}: {msg['content']}\n"
     else:
-        spinner_message = Constants.Spinners["ticket_update"]
+        spinner_message = Constants.Spinners.TICKET_UPDATE
         prompt = user_input
         
     try:

@@ -32,12 +32,9 @@ for message in st.session_state["messages"]:
         st.markdown(message["content"])
 
 # Input del usuario
-if st.session_state.get("modo_robot_finalizado", False):
-    st.chat_input(Constants.Labels["chat_disabled"], disabled=True)
-    
-elif st.session_state.get("ticket_finalizado", False):
-    st.chat_input(Constants.Labels["chat_disabled"], disabled=True)
+if st.session_state.get("modo_robot_finalizado", False) or st.session_state.get("ticket_finalizado", False):
+    st.chat_input(Constants.Labels.CHAT_DISABLED, disabled=True)
 else:
-    user_input = st.chat_input(Constants.Labels["input_placeholder"])
-    if user_input:
+    if user_input := st.chat_input(Constants.Labels.INPUT_PLACEHOLDER):
         send_message(user_input)
+
