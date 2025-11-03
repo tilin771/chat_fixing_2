@@ -4,7 +4,7 @@ from app.utils.session_manager import initialize_session
 from app.components.chat_handlers import send_message
 from app.components.chat_ui import show_message
 from agents.orchestrator_agent import run_supervisor
-from chatbot_streamlit_lambda.data.constants import Constants
+from data.constants import Constants
 from app.handlers.sso_handler import ensure_sso_session
 
 #ensure_sso_session()
@@ -20,7 +20,7 @@ if not st.session_state["ia_inicializada"]:
         saludo_json = json.loads(saludo)
         saludo_texto = saludo_json.get("userResponse", "")
     except:
-        saludo_texto = Constants.Prompts["greeting"]
+        saludo_texto = Constants.Prompts.GREETING
     
     # Solo guardamos, no mostramos directamente
     st.session_state["messages"].append({"role": "assistant", "content": saludo_texto})
